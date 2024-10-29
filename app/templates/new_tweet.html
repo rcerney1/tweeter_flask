@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <h1>Create a New Tweet!</h1>
+    <div class="form-container">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <p>
+                {{ form.author.label }}
+                {{ form.author() }}
+                {% if form.author.errors %}
+                    <span>{{ form.author.errors[0] }}</span>
+                {% endif %}
+            </p>
+
+            <p>
+                {{ form.tweet.label }}
+                {{ form.tweet() }}
+                {% if form.tweet.errors %}
+                    <span>{{ form.tweet.errors[0] }}</span>
+                {% endif %}
+            </p>
+
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}
